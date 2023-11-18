@@ -5,7 +5,7 @@ const doc = {
         title: "Bookshelf API",
         description: "API for managing book collection",
     },
-    host: "project1-ht4k.onrender.com",
+    host: "project2-l54t.onrender.com",
     schemes: ['https']
 };
 

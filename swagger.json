@@ -5,7 +5,7 @@
     "description": "API for managing book collection",
     "version": "1.0.0"
   },
-  "host": "project1-ht4k.onrender.com",
+  "host": "project2-l54t.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
@@ -49,9 +49,6 @@
               "type": "object",
               "properties": {
                 "email": {
-                  "example": "any"
-                },
-                "username": {
                   "example": "any"
                 },
                 "password": {
@@ -119,9 +116,6 @@
               "type": "object",
               "properties": {
                 "email": {
-                  "example": "any"
-                },
-                "username": {
                   "example": "any"
                 },
                 "password": {
