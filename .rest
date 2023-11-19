@@ -1,4 +1,92 @@
 # Get all users
+GET http://localhost:3000/users
+
+### Get user by id
+
+GET http://localhost:3000/users/6558ec6df4eb9198b56ba702
+
+### Get books by user by id
+
+GET http://localhost:3000/users/6558ec6df4eb9198b56ba702/books
+
+### Create user
+
+POST http://localhost:3000/users HTTP/1.1
+content-type: application/json
+
+{
+    "email": "test@test.com",
+    "password": "iLoveBooks123",
+    "firstName": "Test",
+    "lastName": "Test"
+}
+
+### Update user
+
+PUT http://localhost:3000/users/6558ec6df4eb9198b56ba702 HTTP/1.1
+content-type: application/json
+
+{
+    "email": "samuele@mail.com",
+    "password": "iLoveBooks123",
+    "firstName": "Samuele",
+    "lastName": "Leoni"
+}
+
+### Delete user
+
+DELETE http://localhost:3000/users/6558ec6df4eb9198b56ba702 HTTP/1.1
+
+### Get all books
+GET http://localhost:3000/books
+
+### Get book by id
+
+GET http://localhost:3000/books/6558ec6df4eb9198b56ba702
+
+### Create book
+
+POST http://localhost:3000/books HTTP/1.1
+content-type: application/json
+
+{
+    "title": "1984",
+    "author": "George Orwell",
+    "genre": "Dystopian Fiction",
+    "description": "A dystopian novel that explores the dangers of totalitarianism and the impact of mass surveillance on individual freedom.",
+    "publication_date": "1949-06-08",
+    "purchase_date": "2022-05-15",
+    "read": false,
+    "rating": 0,
+    "user_id": "user123"
+}
+
+### Update book
+
+PUT http://localhost:3000/books/654fbb2e5406cac64f60e94d HTTP/1.1
+content-type: application/json
+
+{
+    "title": "1984",
+    "author": "George Orwell",
+    "genre": "Dystopian Fiction",
+    "description": "A dystopian novel that explores the dangers of totalitarianism and the impact of mass surveillance on individual freedom.",
+    "publication_date": "1949-06-08",
+    "purchase_date": "2022-05-15",
+    "read": true,
+    "rating": 4.7,
+    "user_id": "user123"
+}
+
+### Delete book
+
+DELETE http://localhost:3000/books/654fbb2e5406cac64f60e94d HTTP/1.1
+
+
+
+####################################################################################
+
+### Get all users
 GET https://project2-l54t.onrender.com/users
 
 ### Get user by id

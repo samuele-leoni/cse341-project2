@@ -11,7 +11,11 @@ router.get('/:id', booksController.getById);
 router.post('/', async (req, res, next) => {
     try {
         const result = await booksSchema.validateAsync(req.body);
-        console.log(result);
+        if(result) {
+            next();
+        } else {
+            throw new Error('Some error occurred while creating the user');
+        }
     } catch (error) {
         if(error.isJoi) error.status = 422;
         next(error);
@@ -21,7 +25,11 @@ router.post('/', async (req, res, next) => {
 router.put('/:id', async (req, res, next) => {
     try {
         const result = await booksSchema.validateAsync(req.body);
-        console.log(result);
+        if(result) {
+            next();
+        } else {
+            throw new Error('Some error occurred while creating the user');
+        }
     } catch (error) {
         if(error.isJoi) error.status = 422;
         next(error);
