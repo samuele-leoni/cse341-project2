@@ -14,7 +14,7 @@ const getAll = async (req, res) => {
 
 const getByUserId = async (req, res) => {
     //#swagger.tags = ['Books']
-    const userId = new ObjectId(req.params.id);
+    const userId = req.params.id;
     const result = await mongodb.getDatabase().db(process.env.DB_NAME).collection(collection).find({ user_id: userId });
     result.toArray().then((books) => {
         res.setHeader('Content-Type', 'application/json');

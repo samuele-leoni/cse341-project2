@@ -3,13 +3,10 @@ const router = express.Router();
 const { usersSchema } = require('../controllers/validation');
 
 const usersController = require('../controllers/users');
-const booksController = require('../controllers/books');
 
 router.get('/', usersController.getAll);
 
 router.get('/:id', usersController.getById);
-
-router.get('/:id/books', booksController.getByUserId);
 
 router.post('/', async (req, res, next) => {
     try {

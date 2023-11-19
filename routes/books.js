@@ -8,6 +8,8 @@ router.get('/', booksController.getAll);
 
 router.get('/:id', booksController.getById);
 
+router.get('/users/:id', booksController.getByUserId);
+
 router.post('/', async (req, res, next) => {
     try {
         const result = await booksSchema.validateAsync(req.body);

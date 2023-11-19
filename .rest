@@ -7,7 +7,7 @@ GET http://localhost:3000/users/6558ec6df4eb9198b56ba702
 
 ### Get books by user by id
 
-GET http://localhost:3000/users/6558ec6df4eb9198b56ba702/books
+GET http://localhost:3000/books/users/655a955abe6e9edb2ddc8998
 
 ### Create user
 
@@ -80,7 +80,7 @@ content-type: application/json
 
 ### Delete book
 
-DELETE http://localhost:3000/books/654fbb2e5406cac64f60e94d HTTP/1.1
+DELETE http://localhost:3000/books/655a95cbbe6e9edb2ddc8999 HTTP/1.1
 
 
 
@@ -95,7 +95,7 @@ GET https://project2-l54t.onrender.com/users/6558ec6df4eb9198b56ba702
 
 ### Get books by user by id
 
-GET https://project2-l54t.onrender.com/users/6558ec6df4eb9198b56ba702/books
+GET https://project2-l54t.onrender.com/books/users/655a955abe6e9edb2ddc8998
 
 ### Create user
 
