@@ -23,7 +23,7 @@ content-type: application/json
 
 ### Update user
 
-PUT http://localhost:3000/users/6558ec6df4eb9198b56ba702 HTTP/1.1
+PUT http://localhost:3000/users/655a8d02f44064085429db40 HTTP/1.1
 content-type: application/json
 
 {
@@ -35,7 +35,7 @@ content-type: application/json
 
 ### Delete user
 
-DELETE http://localhost:3000/users/6558ec6df4eb9198b56ba702 HTTP/1.1
+DELETE http://localhost:3000/users/655a933967b8f40c20d76d06 HTTP/1.1
 
 ### Get all books
 GET http://localhost:3000/books
