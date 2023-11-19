@@ -30,7 +30,7 @@ const createUser = async (req, res) => {
         firstName: req.body.firstName,
         lastName: req.body.lastName
     };
-    const response = await mongodb.getDatabase().db(process.env.DB_NAME).collection(collection).insertOne(user);
+    const response = await mongodb.getDatabase().db(process.env.DB_NAME).collection(collection).insert(user);
     if(response.acknowledged) {
         res.status(204).end();
     } else {
@@ -47,7 +47,7 @@ const updateUser = async (req, res) => {
         firstName: req.body.firstName,
         lastName: req.body.lastName
     };
-    const response = await mongodb.getDatabase().db(process.env.DB_NAME).collection(collection).replaceOne({ _id: userId }, user);
+    const response = await mongodb.getDatabase().db(process.env.DB_NAME).collection(collection).replace({ _id: userId }, user);
     if(response.modifiedCount > 0) {
         res.status(204).end();
     } else {

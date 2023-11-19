@@ -45,7 +45,7 @@ const createBook = async (req, res) => {
         rating: req.body.rating,
         user_id: req.body.user_id
     };
-    const response = await mongodb.getDatabase().db(process.env.DB_NAME).collection(collection).insertOne(book);
+    const response = await mongodb.getDatabase().db(process.env.DB_NAME).collection(collection).insert(book);
     if(response.acknowledged) {
         res.status(204).end();
     } else {
