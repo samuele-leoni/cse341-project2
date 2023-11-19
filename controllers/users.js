@@ -30,7 +30,7 @@ const createUser = async (req, res) => {
         firstName: req.body.firstName,
         lastName: req.body.lastName
     };
-    const response = await mongodb.getDatabase().db(process.env.DB_NAME).collection(collection).insert(user);
+    const response = await mongodb.getDatabase().db(process.env.DB_NAME).collection(collection).insertOne(user);
     if(response.acknowledged) {
         res.status(204).end();
     } else {
