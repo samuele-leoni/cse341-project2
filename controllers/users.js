@@ -26,9 +26,11 @@ const getById = async (req, res) => {
 
 const createUser = async (req, res) => {
     //#swagger.tags = ['Users']
+    const password = await encrypt(req.body.password);
+    
     const user = {
         email: req.body.email,
-        password: encrypt(req.body.password),
+        password: password,
         firstName: req.body.firstName,
         lastName: req.body.lastName
     };
@@ -42,10 +44,11 @@ const createUser = async (req, res) => {
 
 const updateUser = async (req, res) => {
     //#swagger.tags = ['Users']
+    const password = await encrypt(req.body.password);
     const userId = new ObjectId(req.params.id);
     const user = {
         email: req.body.email,
-        password: encrypt(req.body.password),
+        password: password,
         firstName: req.body.firstName,
         lastName: req.body.lastName
     };
