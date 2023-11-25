@@ -1,6 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const { booksSchema } = require('../controllers/validation');
+const { validate, booksSchema } = require('../middleware/validator');
+
+const { isAuthenticated } = require('../middleware/authenticate');
 
 const booksController = require('../controllers/books');
 
@@ -8,36 +10,12 @@ router.get('/', booksController.getAll);
 
 router.get('/:id', booksController.getById);
 
-router.get('/users/:id', booksController.getByUserId);
+router.get('/users/:id', isAuthenticated, booksController.getByUserId);
 
-router.post('/', async (req, res, next) => {
-    try {
-        const result = await booksSchema.validateAsync(req.body);
-        if(result) {
-            next();
-        } else {
-            throw new Error('Some error occurred while creating the user');
-        }
-    } catch (error) {
-        if(error.isJoi) error.status = 422;
-        next(error);
-    }
-}, booksController.createBook);
+router.post('/', isAuthenticated, validate(booksSchema), booksController.createBook);
 
-router.put('/:id', async (req, res, next) => {
-    try {
-        const result = await booksSchema.validateAsync(req.body);
-        if(result) {
-            next();
-        } else {
-            throw new Error('Some error occurred while creating the user');
-        }
-    } catch (error) {
-        if(error.isJoi) error.status = 422;
-        next(error);
-    }
-}, booksController.updateBook);
+router.put('/:id', isAuthenticated, validate(booksSchema), booksController.updateBook);
 
-router.delete('/:id', booksController.deleteBook);
+router.delete('/:id', isAuthenticated, booksController.deleteBook);
 
 module.exports = router;

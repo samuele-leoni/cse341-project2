@@ -19,4 +19,15 @@ const booksSchema = Joi.object({
     user_id: Joi.string().required(),
 });
 
-module.exports = { usersSchema, booksSchema };
+const validate = (schema) => {
+    return (req, res, next) => {
+        const { error } = schema.validate(req.body);
+        if (error) {
+            return res.status(422).json(error.message);
+        } else {
+            next();
+        }
+    }
+}
+
+module.exports = { usersSchema, booksSchema, validate };
