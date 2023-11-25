@@ -12,7 +12,7 @@ const port = process.env.PORT || 3000;
 app
     .use(bodyparser.json())
     .use(session({
-        secret: "secret",
+        secret: Math.random().toString(),
         resave: true,
         saveUninitialized: true
     }))

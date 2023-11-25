@@ -1,5 +1,6 @@
 const mongodb = require('../data/database');
 const ObjectId = require('mongodb').ObjectId;
+const { encrypt } = require('../middleware/encryption');
 
 const collection = 'users';
 const db_name = process.env.DB_NAME;
@@ -27,7 +28,7 @@ const createUser = async (req, res) => {
     //#swagger.tags = ['Users']
     const user = {
         email: req.body.email,
-        password: req.body.password,
+        password: encrypt(req.body.password),
         firstName: req.body.firstName,
         lastName: req.body.lastName
     };
@@ -44,7 +45,7 @@ const updateUser = async (req, res) => {
     const userId = new ObjectId(req.params.id);
     const user = {
         email: req.body.email,
-        password: req.body.password,
+        password: encrypt(req.body.password),
         firstName: req.body.firstName,
         lastName: req.body.lastName
     };
