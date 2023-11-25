@@ -6,9 +6,9 @@ const usersController = require('../controllers/users');
 
 const { isAuthenticated } = require('../middleware/authenticate');
 
-router.get('/', usersController.getAll);
+router.get('/', isAuthenticated, usersController.getAll);
 
-router.get('/:id', usersController.getById);
+router.get('/:id', isAuthenticated, usersController.getById);
 
 router.post('/', isAuthenticated, validate(usersSchema), usersController.createUser);
 
