@@ -5,9 +5,8 @@ const doc = {
         title: "Bookshelf API",
         description: "API for managing book collection",
     },
-    //host: "project2-l54t.onrender.com",
-    host: "localhost:3000",
-    schemes: ['https', 'http'],
+    host: "project2-l54t.onrender.com",
+    schemes: ['https'],
 };
 
 const outputFile = './swagger.json';
